@@ -1,0 +1,158 @@
+{
+  "main": {
+    "id": "319c0156fbea0bb9",
+    "type": "split",
+    "children": [
+      {
+        "id": "04419c512d5464b0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "44dfe988563d77fb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "SQL příklady.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9cae2af0d21dd23b",
+    "type": "split",
+    "children": [
+      {
+        "id": "6156bfded15d9538",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9459c2c1dfe46140",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "ef6629fb9b91e991",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "49d6ee1133ece062",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "36638a4e1fd15a8a",
+    "type": "split",
+    "children": [
+      {
+        "id": "6aa9a6a22ee5dbcf",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1cc9de6a99ef429e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "SQL příklady.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "48c71915cbc94054",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "SQL příklady.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b4332a7225fdbd49",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "3420506a58137193",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "SQL příklady.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "9459c2c1dfe46140",
+  "lastOpenFiles": [
+    "MariaDB.md",
+    "Datové typy.md",
+    "SQL příklady.md",
+    "MySQL Workbench.md",
+    "Pasted image 20231002122739.png",
+    "Noviny.md"
+  ]
+}

@@ -1,0 +1,268 @@
+{
+  "main": {
+    "id": "c31073ff9783bdb0",
+    "type": "split",
+    "children": [
+      {
+        "id": "761a5ee6fa848590",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "903f4728e49645cc",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Troubleshooting.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "e98d10db52d8f9f1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Routing.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "aa89ee36d77c5ebf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DHCP.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "69de82a68de2c00a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "FHRP.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "5fa1577c3127121e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "STP.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "d68321de528014a5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "RSTP,MSTP.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2ebe9471e4a0e1a2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "LAN Security.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "4822aecd2bb0449d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Wireless.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "2345114a2f12d421",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "IPv6.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "f1d77ad310ab5483",
+    "type": "split",
+    "children": [
+      {
+        "id": "40c3fbcf26f7a017",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b7cdd3e8d4c1909a",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "94ba02d11561540e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "42661522341e259e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "5d7f4b16fcc007b1",
+    "type": "split",
+    "children": [
+      {
+        "id": "2df0337470e3f7ba",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "df031720735b39e2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "DHCP.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c16b76b08548712b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "DHCP.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "e3381ff5ed14989f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "d575895b686a25c8",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "DHCP.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
+    }
+  },
+  "active": "aa89ee36d77c5ebf",
+  "lastOpenFiles": [
+    "IPv6.md",
+    "DHCP.md",
+    "LAN Security.md",
+    "FHRP.md",
+    "Wireless.md",
+    "Routing.md",
+    "STP.md",
+    "RSTP,MSTP.md",
+    "Troubleshooting.md",
+    "VLAN.md",
+    "Vrstvy OSI - ISO modelu.md",
+    "Excalidraw/Routing 2023-12-14 11.03.44.excalidraw.md",
+    "L3 Switch.md",
+    "Excalidraw/Routing 2023-11-20 11.01.56.excalidraw.md",
+    "Excalidraw/Routing 2023-11-30 11.00.02.excalidraw.md",
+    "Excalidraw/Drawing 2023-10-02 10.58.03.excalidraw.md",
+    "Switching.md",
+    "Excalidraw/Drawing 2023-09-08 10.29.59.excalidraw.md"
+  ]
+}

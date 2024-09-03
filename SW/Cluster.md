@@ -1,0 +1,3 @@
+- Seskupení počítačů, které pracují jako jeden
+- odolnost proti chybám, vyrovnání zátěže
+	- failover, load-balancing

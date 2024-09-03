@@ -1,0 +1,165 @@
+{
+  "main": {
+    "id": "fb22b191f4ea94ce",
+    "type": "split",
+    "children": [
+      {
+        "id": "916b803172c68ef6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a6712c37d7e08542",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Úvod, podmínky.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7013062a40b2e524",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Právo.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "3d6c92726bcad3e4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Česká státnost.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e28f6c23c4debafc",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "e1da513b96862a10",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "4a638a33775db58d",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "83f0e4857a52c170",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "e2da06fe7d4a87ca",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "ac8778cca2f0129c",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "250715e533c5d6df",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Česká státnost.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "84b03c1644941202",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "Česká státnost.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "a6aa04f92d463a55",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Česká státnost.md"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "3d6c92726bcad3e4",
+  "lastOpenFiles": [
+    "Právo.md",
+    "Česká státnost.md",
+    "Úvod, podmínky.md"
+  ]
+}

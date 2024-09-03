@@ -1,0 +1,173 @@
+{
+  "main": {
+    "id": "91b1341ed6f3666e",
+    "type": "split",
+    "children": [
+      {
+        "id": "a81c87c1500ed1c6",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cf6e6ce43034d739",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Windows server.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b02ae222ffd3236b",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Windows server 2023-09-22 09.05.38.excalidraw.md"
+              }
+            }
+          },
+          {
+            "id": "c99deb8033d68547",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2023-09-15 09.26.41.excalidraw.md"
+              }
+            }
+          },
+          {
+            "id": "91e7253cbb4cb815",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/Drawing 2023-09-15 09.20.44.excalidraw.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "673c067148cd3ecd",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "df697b07579b35fc",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "a0b781c09d39e834",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "a405d8841beb062e",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "6dfe3b740feb5619",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "1e9d39c7cb4b8619",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "6e176a968424cf66",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Windows server.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "9add15974a6302ed",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "Windows server.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "37b8b170c1659f9d",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Windows server.md"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "cf6e6ce43034d739",
+  "lastOpenFiles": [
+    "Excalidraw/Windows server 2023-09-22 09.05.38.excalidraw.md",
+    "Windows server.md",
+    "Excalidraw/Drawing 2023-09-15 09.26.41.excalidraw.md",
+    "Excalidraw/Drawing 2023-09-15 09.20.44.excalidraw.md",
+    "Excalidraw"
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "main": {
+    "id": "cd9822e4d0041b7e",
+    "type": "split",
+    "children": [
+      {
+        "id": "8dcdd34cc3616405",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "57c20f50acd466e5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Mountování.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "58098fda01faccf3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kvótování.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "c48678807dc13401",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Kernel modules.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f79005642d2fc9f8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DEB packages.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "725727f9ebc275ed",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "RAID konfigurace.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "834e9f61825b5e8c",
+    "type": "split",
+    "children": [
+      {
+        "id": "7992ccc426ffbffc",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8bcf93e349031c5c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "b21494ea7e740e36",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3bcf05044fc266d3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7cae89d2b1c7bf91",
+    "type": "split",
+    "children": [
+      {
+        "id": "b4dc2814030883e0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1c391e2f3fd44140",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "DEB packages.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f27ab1ea03b6cb19",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "DEB packages.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d9f69e6b64f60d5a",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "51f79bda52f1f44b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "DEB packages.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "f79005642d2fc9f8",
+  "lastOpenFiles": [
+    "Kernel modules.md",
+    "DEB packages.md",
+    "Mountování.md",
+    "Konfigurace uživatelského prostředí.md",
+    "Kvótování.md",
+    "RAID konfigurace.md",
+    "Excalidraw/Mountování 2023-09-19 11.55.43.excalidraw.md"
+  ]
+}

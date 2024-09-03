@@ -1,0 +1,267 @@
+{
+  "main": {
+    "id": "7267fcef999016b2",
+    "type": "split",
+    "children": [
+      {
+        "id": "6cbb17d0741eeb95",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1a9cab2f3382765a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "NAS, SAN.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "912913d5f271d30c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Windows server.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "df4238dbbf4a1a5f",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DNS.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b2ec89f415da4edb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "LDAP & Active Directory.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "7febbb39750641e3",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.6.3"
+              }
+            }
+          },
+          {
+            "id": "085e641280daecdb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DHCP.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "27fd9619dc0df1b2",
+            "type": "leaf",
+            "state": {
+              "type": "excalidraw",
+              "state": {
+                "file": "Excalidraw/DNS 2023-12-08 08.58.31.excalidraw.md"
+              }
+            }
+          },
+          {
+            "id": "bea19ba109f145b5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spouštění operačního systému.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "b538c2ac80d46b1d",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "226974bd05c73a9c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Cluster.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "78e6ff6e90e2c984",
+    "type": "split",
+    "children": [
+      {
+        "id": "765f33e0d794c62f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3a1921c75951b9e4",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "da4ef1ff1e490150",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "393bbda25d98e32e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0cbe311404565168",
+    "type": "split",
+    "children": [
+      {
+        "id": "87b71774949fc518",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "77aca0301facfa72",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "LDAP & Active Directory.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "25ce70216a35efdf",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "LDAP & Active Directory.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "fcf66cf3b2f09e97",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "9f4c4ae48c53c60c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "LDAP & Active Directory.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "obsidian-excalidraw-plugin:Create new drawing": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "7febbb39750641e3",
+  "lastOpenFiles": [
+    "DNS.md",
+    "LDAP & Active Directory.md",
+    "DHCP.md",
+    "Excalidraw/DNS 2023-12-08 08.58.31.excalidraw.md",
+    "Windows server.md",
+    "Cluster.md",
+    "Spouštění operačního systému.md",
+    "NAS, SAN.md",
+    "PnP.md",
+    "RAID.md",
+    "Registr.md",
+    "Excalidraw/Windows server 2023-09-22 09.05.38.excalidraw.md",
+    "Excalidraw/Drawing 2023-09-15 09.20.44.excalidraw.md",
+    "Excalidraw/Drawing 2023-09-15 09.26.41.excalidraw.md"
+  ]
+}

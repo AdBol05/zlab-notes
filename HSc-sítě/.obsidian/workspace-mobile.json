@@ -1,0 +1,179 @@
+{
+  "main": {
+    "id": "2085a22d13042904",
+    "type": "split",
+    "children": [
+      {
+        "id": "0177bc2a60ea5eaa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ab93cf694b1049a6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Commands.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "84063e869ee6c8b8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Konfigurace CISCO Switche a Routeru.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "44d53142b2eb7781",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Porty.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "1d70b42d7aa1b377",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Ethernet.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "084e09543cee0466",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "085a0647a075c812",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "020724678b8e015c",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "a9a0cf2357942dc6",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "79ee3d68b56181f1",
+        "type": "leaf",
+        "state": {
+          "type": "bookmarks",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "right": {
+    "id": "e9fb650687437c18",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "c8430620c766743b",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "file": "Konfigurace CISCO Switche a Routeru.md",
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "7ec654b9452f11b6",
+        "type": "leaf",
+        "state": {
+          "type": "outgoing-link",
+          "state": {
+            "file": "Konfigurace CISCO Switche a Routeru.md",
+            "linksCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      },
+      {
+        "id": "1699a0cb8d106830",
+        "type": "leaf",
+        "state": {
+          "type": "outline",
+          "state": {
+            "file": "Konfigurace CISCO Switche a Routeru.md"
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "84063e869ee6c8b8",
+  "lastOpenFiles": [
+    "Ethernet.md",
+    "Untitled.md",
+    "Konfigurace CISCO Switche a Routeru.md",
+    "Commands.md",
+    "Porty.md"
+  ]
+}
