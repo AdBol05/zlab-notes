@@ -1,20 +1,30 @@
 - #FreeBSD
 - #Linux - [[Open source]]
+	- #Debian 
+		- #Ubuntu
+	- #Fedora
+	- #RedHat - Komerční (placená podpora a služby)
 ### Dokumentace
 - `--help` - nápověda od programu
 - `man` - manuál programu
 - `/usr/share/doc` - dokumentace
 - `info` - podobné `man`
+	- nejpodrobnější
 
 ## Správa balíčků
 - #Low-level_tools
 	- #Debian - #dpkg
 		- `dpkg -i ./file.deb`
-	- #CentOS - #rpm
+	- #CentOS / #RedHat- #rpm
 		- `rpm -Uvh file.rpm`
 - #High-level_tools
-	- #Debian - #apt
+	- Metadata
+		- verze
+		- závislosti
+	- Automaticky instaluje závislosti
+	- #Debian - #apt / #apt-get
 		- `apt install <package>`
+		- `apt-get install <package>`
 	- #CentOS - #yum
 		- `yum install <package>`
 
@@ -38,6 +48,8 @@
 - ### Disky
 	- `du -h` - disk usage
 	- `df -h` - disk free (`df -hi` - volné a obsazené inodes)
+		- `-h` - Human readable
+	- `lsblk` - vypsání blokových zařízení -> disky, oddíly, velikost, mountpoint
 	- #### Zálohy
 		- kopie disku do img `dd if=/dev/sda | gzip -c > /system_images/sda.img.gz`
 		- kopie z img do disku `gzip -dc /system_images/sda.img.gz | dd of=/dev/sda`
@@ -53,11 +65,17 @@
 			- `-h` human-readable
 			- `-e` připojení SSH
 			- `-v` verbose
-	- #### Správa oddílů
-		- `fdisk` - #MBR oddíly
+	- #### Formátování a správa oddílů
+		- `fdisk` - #MBR oddíly (zastaralý)
 		- `gdisk` - #GPT oddíly
 		- Formátování
 			- `mkfs -t <filesystem> -L <popisek> <oddíl>` - make filesystem
+				- #ext2 
+				- #ext3 
+				- #ext4
+			- `mkswap <addíl>` - make swap
+				- #swap - alternativa pagefile.sys
+					- `swapon` / `/etc/fstab`
 	- #### Připojování
 		-> #mounting 
 		- `/etc/fstab` -> automatické připojování oddílů při startu
@@ -73,9 +91,20 @@
 				- #realtime - aktualizuje čas přístupu pokud čas atime nastal dříve než mtime
 				- #user_xattr - povoluje nastavování atributů místním i vzdáleným uživatelům
 		- #mount_point - bod / adresář připojení
-		- `mount -t <filesystem> <zařízebí> <mountpoint> -o <options>`
+		- `mount -t <filesystem> <oddíl> <mountpoint> -o <options>`
+		- `umount <oddíl>`
+```sh
+# <odkud> <kam> <typefs> <options> <záloha metadat> <kontrola fs>
+
+/dev/sdb10 /mnt/ext2 ext2 defaults 0 1
+#hrozí změna cesty disku! (přiřazuje BIOS)
+
+/dev/mapper/i3x-swap none swap sw 0 0
+#logický oddíl -> nehrozí změna cesty
+```
+
 - ### RAM
-	- `free -g`
+	- `free -h`
 		- total - celková velikost RAM
 		- used - využitá RAM
 		- free - volná (total - used)
@@ -113,7 +142,7 @@
 | SIGTSTP | 20    | pozastavit činnost, počkat až bude možné pokračovat         |
 | SIGSTOP | 19    | zastavení, nemůže být ignorováno                            |
 | SIGCONT | 18    | pokračování pozastaveného procesu                           |
-
+`kill -9 PID`
 
 ### informace o swap oddílech
 - `cat /proc/swaps`
@@ -128,7 +157,7 @@
 	- vyhledání - `smbclient -L 192.168.0.10`
 	- připojení - `smbclient //192.168.0.10/share user%password`
 
-# RAID a LVM
+# RAID
 - #RAID0 - prokládání
 - #RAID1 - zrcadlení
 - #RAID5 - prokládání s paritou
@@ -136,11 +165,19 @@
 - `cat /proc/mdstat`, `mdadm -detail /dev/md0` - stav oddílu
 - `mdadm --detail --scan --asemble` - najde a sestaví RAID
 
+# LVM
+- logické oddíly
+	- cesta vždy stejná na rozdíl od fyzických
+- `/dev/mapper`
+```bash
+sudo pvcreate /dev/sdb{3,4}                    # vytvoření physical volume
+sudo vgcreate "nerad" /dev/sdb{3,4}            # vytvoření volume group
+sudo lvcreate --name=data --size=150M "nerad"  # vytvoření logických oddílů
+```
 ### Struktura LVM
 - #Physical_volume - ( #PV ) celý disk nebo odddíl
 - #Volume_group - ( #VG ) jednotka z jednoho nebo více fyzických svazků
 - #Logical_volume - vytváří se z #VG, dá se měnit jeho velikost,  chová se jako diskový oddíl
-
 
 # Konfigurace sítě
 - `hostname <name>` -> `/etc/hostname`
@@ -164,15 +201,15 @@ nameserver 192.168.0.1 #DNS server
 
 
 # Uživatelské účty
-- `adduser` `useradd` -> vytvoření uživatele
-	- `/etc/passwd` -> seznam uživatelů
+- `adduser` `useradd` -> vytvoření uživatele (`adduser` interaktivní) 
+	- `cat /etc/passwd` -> seznam uživatelů
 		- `[username]:[x]:[UID]:[GID]:[Comment]:[HomeDir]:[Shell]`
 			- `[x]` -> heslo uložené v `/etc/shadow`
 	- `/home/<user>` -> domovská složka uživatele
 		- `~/.bash_logout` `~/.bash_profile` `~/.bashrc`
 - `userdel --remove` -> smazání účtu
 - `groupadd` -> vytvoření skupiny
-	- `/etc/group` -> seznam skupin
+	- `cat /etc/group` -> seznam skupin
 		- `[groupname]:[grouppassword]:[GID]:[members]`
 			- `[x]` -> skupina bez hesla
 - `usermod` -> upravení nastavení uživatele
@@ -183,16 +220,26 @@ nameserver 192.168.0.1 #DNS server
 
 `chown user:group file` - změna vlastníka souboru
 `chgrp new_group file` - změna vlastnící skupiny
-# Speciální oprávnění
-- #Sticky_bit
-	- u adresářů povoluje uživatelům mazat jen jejich vlastní soubory
-	- `chmod o+t file.txt` `chmod 1755 file.txt`
+
+## Oprávnění
+- `chmod 777 file.txt` - nastavení oprávnění
+	- `chmod u+r,g+r,o+r file.txt`
+- `chown user file.txt` - nastavení vlastníka
+- `rwxrwxrwx` - (`user` `group` `other`)
+	- `-rwxr--r--` -> `744` (`4+2+1` `4+0+0` `4+0+0`) - osmičková soustava
+	- `r` - read
+	- `w` - write
+	- `x` - execute
+### Speciální oprávnění
 - #SETUID
 	- při spuštění souboru se spustí s právy vlastníka
 	- `chmod u+s file.txt` `chmod 4755 file.txt`
 - #SETGID 
 	- umožňuje uživateli přístup k souboru s právy vlastnící skupiny
 	- `chmod g+s directory` `chmod 2755 directory`
+- #Sticky_bit
+	- u adresářů povoluje uživatelům mazat jen jejich vlastní soubory
+	- `chmod o+t file.txt` `chmod 1755 file.txt`
 
 ### chattr
 - `chattr +i file` - soubor je *immutable* 
@@ -200,3 +247,79 @@ nameserver 192.168.0.1 #DNS server
 - `chattr +a file` - soubor je *append only*
 	- -> lze pouze přidávat obsah
 - `lsattr` - zobrazí speciální oprávnění
+
+# Služby
+- #služba - proces běžící na pozadí
+- `systemctl restart služba
+	- `start` / `stop`
+	- `stop`
+	- `enable` / `disable`
+	- `status`
+## DNS
+- #DNS - překlad jmen na IP adresy a zpět
+- nástupce `/etc/hosts` - staticky nastavené IP adresy a jména
+- služba `bind`
+	- `/etc/named.conf`
+```bash
+options {
+	listen-on port 53 { 127.0.0.1; 192.168.0.18};
+	allow-query {localhost; 192.168.0.0/24;};
+	recursion yes;
+	forwarders {
+		8.8.8.8;
+		8.8.4.4
+	};
+}
+
+zone "prodej.firma.com" IN {
+	type master;
+	file "/var/named/prodej.firma.com.zone";
+};
+
+zone "0.168.192.in-addr.arpa" IN {
+	type master;
+	file "/var/named/0.168.192.in-addr.arpa.zone";
+};
+```
+
+#zóna - část #DNS stromu -> doména
+- konfigurace v `/var/name/prodej.firma.com.zone`
+```bash
+$TTL 604800
+@ IN SOA prodej.firma.com. root.prodej.firma.com. (
+	2016051101 ; Serial
+	10800 ; Refresh
+	3600 ; Retry
+	604800 ; Expire
+	604800) ; Negative TTL
+;
+@ IN NS prodej.firma.com.
+dns IN A 192.168.0.18
+web1 IN A 192.168.0.29
+mail1 IN A 192.168.0.28
+mail2 IN A 192.168.0.30
+@ IN MX 10 mail1.prodej.firma.com.
+@ IN MX 20 mail2.prodej.firma.com.
+www.web1 IN CNAME web1
+```
+`systemctl start named`
+## DHCP
+- `/etc/dhcp/dhcp.conf`
+```bash
+option domain-name "firma.lan";
+option domain-name-servers ns1.firma.lan, ns2.firma.lan;
+default-lease-time 3600;
+max-lease-time 7200;
+authoritative;
+
+subnet 192.168.1.0 netmask 255.255.255.0 {
+	option routers 192.168.1.1;
+	option subnet-mask 255.255.255.0;
+	option domain-search "firma.lan";
+	option domain-name-servers 192.168.1.1;
+	range 192.168.1.10 192.168.1.100;
+	range 192.168.1.110 192.168.1.200;
+}
+```
+`systemctl start isc-dhcp-server`
+`ufw allow 67/udp`

@@ -18,8 +18,8 @@
 | L           | 10.0.1.0    |           | directly g0/0    |          | GIgabitEthernet0/0/0 |
 #### Priorita:
 1. Délka prefixu
-2. Administrative distance
-3. Metrika
+2. #Administrative_distance
+3. #Metrika (cena cesty)
 
 #### Typ záznamů
 - O - #OSPF záznam -> *Remote*
@@ -105,9 +105,8 @@ interface G0/1.99
 
 # Statický routing
 ```sh
-ip route 192.168.3.0 255.255.255.0 172.16.0.3
-ip route 192.168.3.0 255.255.255.0 g0/0
-
+ip route 192.168.3.0 255.255.255.0 172.16.0.3  # via 172.16.0.3
+ip route 192.168.3.0 255.255.255.0 g0/0        # direct
 
 ip route 192.168.4.0 255.255.255.0 172.16.0.4  
 ip route 192.168.3.0 255.255.255.0 172.16.0.3  
@@ -116,6 +115,21 @@ ip route 10.0.10.0 255.255.255.0 172.16.0.1
 ip route 10.0.20.0 255.255.255.0 172.16.0.1
 ```
 - **Musí být nastavený routing i zpět na druhém routeru**
+
+```sh
+ip route 192.168.3.0 255.255.255.0 g0/0     # default administrative distance (6)
+ip route 192.168.3.0 255.255.255.0 g0/0 10  # 10 administrative distance
+```
+
+```sh
+ip route 0.0.0.0 0.0.0.0 g0/0 # default route -> S*
+```
+
+#floating_route - záložní statická cesta
+
+# Dynamický routing
+-> [[OSPF]]
+
 
 # IPv6 Routing
 [[IPv6]]

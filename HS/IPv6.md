@@ -3,7 +3,6 @@
 - 8 hextetů - 16bitů / 4 hex hodnoty
 - *fe80::972b:99ac:7e55:71ea*/64
 
-
 #### Koexistence IPv4 a IPv6
 - #Dual_stack - IPv4 a IPv6 současně
 - #Tunneling - IPv6 packet zapouzdřen do IPv4 packetu
@@ -53,6 +52,8 @@ reload
 int vlan 90
 ipv6 add fe80::2 link-local
 ipv6 2001:acad:abc:90::2/64
+
+ipv6 route ::/0 2001:db8:3::1  # default gateway
 ```
 
 ### Router

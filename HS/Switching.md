@@ -1,16 +1,16 @@
 ![[Drawing 2023-09-14 10.56.37.excalidraw]]
 
 1. Nejrychlejší
-	- Cut-throught
+	- #Cut-throught
 	- Stačí cílová MAC
 	- prvních 14B (preamble + zdroj + cíl)
 
 2. Mezi
-	- Fragment-free
+	- #Fragment-free
 	- Minimální délka (64B)
 
 3. Nejspolehlivější
-	- Store-and-forward
+	- #Store-and-forward
 	- Čeká na checkum na konci rámce
 	- Celý rámec
 
@@ -39,4 +39,5 @@
 
 #SVI 
 - Switch Virtual Interface
-- logické rozhraní switche -> management [[VLAN]]
+- logické (virtuální, simulované) rozhraní switche -> management [[VLAN]]
+- Může mít IP parametry

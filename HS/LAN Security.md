@@ -34,14 +34,14 @@ Zabezpečení #LAN
 - #HIPSs - **Host-based Intrusion prevention systems**
 
 # Access control
-- console
+- #console
 ```
 line vty 0 4
 password cisco
 login
 ```
 
-- ssh
+- #ssh
 ```
 ip domain-name zlab.cz
 crypto key generate rsa general-keys modulus 2048
@@ -73,19 +73,19 @@ login local
 
 # Bezpečnostní hrozby na L2 
 - #Linková vrstva
-- útoky na MAC tabulku
+- ### útoky na MAC tabulku
 	- zahlcení tabulky -> komunikace na všechny porty
 	- **Ochrana** #port_security
-- útoky na [[VLAN]]
+- ### útoky na [[VLAN]]
 	- vynucení #Trunk -> defaultně povolené veškeré [[VLAN]]
 	- dvojité falešné tagy -> odebere se pouze jeden -> komunikace do jiné [[VLAN]]
 		- útočník musí být v nativní [[VLAN]]
-	- **Ochrana:** #port_security
-- útoky prostřednictvím [[DHCP]]
+	- **Ochrana:** #port_security, vypnutí #DTP, nestandardní native [[VLAN]]
+- ### útoky prostřednictvím [[DHCP]]
 	- #DHCP_starvation -> vyčerpání #address_pool pomocí #DHCPDISCOVER žádostí
 	- #DHCP_spoofing -> falešný [[DHCP]] server -> falešné údaje (default gateway, DNS server)
 		- **Ochrana:** #DHCP_snooping 
-- útoky prostřednictvím ARP
+- ### útoky prostřednictvím ARP
 	- #ARP_spoofing a #ARP_poisoning
 		- útočník zasílá nevyžádané ARP reply s falešnou MAC adresou
 			- **Ochrana**: #DAI - *Dynamic ARP Inspection*
@@ -105,27 +105,34 @@ login local
 						- `ip arp inspection validate {[src-mac] [dst-mac] [ip]}`
 		- nastavení jiné MAC adresy na síťové kartě -> obcházení MAC filtrů
 			- **Ochrana**: #port_security nebo #IPSG (*IP Source Guard*)
-- útoky pomocí podvržených MAC a IP adres (Address spoofing)
+- ### útoky pomocí podvržených MAC a IP adres (Address spoofing)
 	- podvržení záznamů v ARP tabulce -> #MitM -> **Man in the middle**
-- útoky prostřednictvím [[STP]]
+- ### útoky prostřednictvím [[STP]]
 	- Změna topologie sítě (výběr #Root_bridge)
 	- Přesměrování dat na útočníka -> #MitM
-- zneužití #CDP **Cisco Discovery Protocol**
+- ### zneužití #CDP **Cisco Discovery Protocol**
 	- #CDP_Reconnaissance (průzkum) - broadcast, nešifrované
 		- útočník se dozvídá o topologii sítě
 
 
 # DHCP snooping
 #DHCP_snooping 
+- `show ip dhcp snooping`
+- `shop ip dhcp snooping binding`
 - nastavení portů reagující na [[DHCP]] zprávy
 - rate limit DHCP requestů na #untrusted portu
 - typy portů:
 	- #trusted - předává [[DHCP]] zprávy, přímé připojení k serveru
 	- #untrusted - přijímá pouze klientské [[DHCP]] zprávy, blokuje serverové
+		- #DHCPOFFER, #DHCPACK
 - vytváří #DHCP_binding_table 
 	- důvěryhodné porty
+	- mac dresa + #untrusted porty
+	- využíván #DAI
 - `ip dhcp snooping trust`
 - `ip dhcp snooping limit rate 6`
+	- ochrana před #DHCP_starvation 
+	- limit serverových zpráv na #trusted portu
 - `ip dhcp snooping vlan 5,10,50-52`
 
 # Best practices
@@ -139,7 +146,8 @@ login local
 - Nepoužívat #Dynamic_auto či #Dynamic_desirable na access portech
 
 # Port Security
-- #port_security -> Vypnutí nevyužitých portů
+- #port_security - `show port-security <adresa/interface>`
+- Vypnutí nevyužitých portů
 - Ochrana před útoky na MAC tabulku
 - Limituje počet připojených MAC adres na port <1 - 8192>
 	- lze ručně definovat povolené MAC adresy
@@ -149,26 +157,29 @@ login local
 	- *Staticky* 
 		- ručně nastavení MAC adresy
 		- `switchport port-security mac-address <mac>`
-	- *Dynamicky*
+	- *SecureDynamic*
 		- nastavení právě připojené 
 		- Neukládá se do #startup_config
-	- *Dynamicky - Sticky*
+	- *SecureSticky*
 		- Adresa se uloží do #startup_configq
 - #port_security_aging - smazání nastavené adresy po určené době
-	- `sw port-securtity aging time 10`
+	- `sw port-securtity aging time 10` - 10 minut
 	- `sw port-security aging type inactivity`
 	- `show port-security fa0/1`
 	- *Absolute* - odpočet od nastavení adresy
 	- *Inactivity* - smazána po době neaktivity
-- ### Port security modes
-	- *Protect* 
+- ### Port security modes / violation mode
+	- *Protected* 
 		- zahazuje neznámé rámce
+		- nezvyšuje #violation_counter 
 	- *Restrict*
 		- zahazuje neznámé rámce
 		- zvyšuje #violation_counter
-	- *Shutdown*
-		- vypíná port po detekci neznámého rámce
+	- *Secure-shutdown*
+		- výchozí
+		- vypíná port po detekci neznámého rámce #error-disabled
 			- je třeba manuální zapnutí
+		- zvyšuje #violation_counter
 
 | mode     | discard traffic | syslog | violation counter | shut down port |
 | -------- | --------------- | ------ | ----------------- | -------------- |
@@ -186,3 +197,7 @@ login local
 - Vypnout DTP
 - Native [[VLAN]] jinou než 1 nebo data [[VLAN]]
 
+## Syslog
+- záznam událostí na systému
+- `debug ?` - živý výpis událostí
+- obsahuje změny #violation_counter

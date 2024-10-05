@@ -46,12 +46,12 @@ show interfaces trunk
 	- #Dynamic_desirable
 		- Protějšek bude trunk
 
-|  | ACCESS | TRUNK | DYNAMIC AUTO | DYNAMIC DESIRABLE |
-| ---- | ---- | ---- | ---- | ---- |
-| ACCESS | A | / | A | A |
-| TRUNK | / | T | T | T |
-| DYNAMIC AUTO | A | T | A | T |
-| DYNAMIC DESIRABL | A | T | T | T |
+|                  | ACCESS | TRUNK | DYNAMIC AUTO | DYNAMIC DESIRABLE |
+| ---------------- | ------ | ----- | ------------ | ----------------- |
+| ACCESS           | A      | /     | A            | A                 |
+| TRUNK            | /      | T     | T            | T                 |
+| DYNAMIC AUTO     | A      | T     | A            | T                 |
+| DYNAMIC DESIRABL | A      | T     | T            | T                 |
 ![[Drawing 2023-10-23 10.59.42.excalidraw]]
 
 - Druhy VLAN
@@ -74,16 +74,12 @@ show interfaces trunk
 - Rozsah VLAN
 	- `1 - 4095`
 	- normal -> `1 - 1005`
-		- `vlan.dat`
+		- `vlan.dat` - flash
 		- `1` default
 		- `1002 - 1005` rezervováno pro FDDI Token Ring
 		- `1, 1002 - 1005` nelze smazat
 	- extended -> `1006 - 4095`
-		- `startup-config`
-
-
-
-
+		- `running-config` -> `startup-config` - NVRAM
 
 # DTP
 #DTP
@@ -93,8 +89,6 @@ show interfaces trunk
 - automaticky nastaví trunk i na druhém zařízení
 - **nenastavuje** číslo VLAN
 - defaultně #Dynamic_auto 
-
-
 
 
 ![[Drawing 2023-10-02 10.58.03.excalidraw]]
