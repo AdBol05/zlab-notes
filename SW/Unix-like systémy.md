@@ -258,7 +258,7 @@ nameserver 192.168.0.1 #DNS server
 ## DNS
 - #DNS - překlad jmen na IP adresy a zpět
 - nástupce `/etc/hosts` - staticky nastavené IP adresy a jména
-- služba `bind`
+- služba `named` - balíček `bind9`
 	- `/etc/named.conf`
 ```bash
 options {
@@ -283,7 +283,7 @@ zone "0.168.192.in-addr.arpa" IN {
 ```
 
 #zóna - část #DNS stromu -> doména
-- konfigurace v `/var/name/prodej.firma.com.zone`
+- konfigurace v `/var/named/prodej.firma.com.zone`
 ```bash
 $TTL 604800
 @ IN SOA prodej.firma.com. root.prodej.firma.com. (
@@ -302,7 +302,8 @@ mail2 IN A 192.168.0.30
 @ IN MX 20 mail2.prodej.firma.com.
 www.web1 IN CNAME web1
 ```
-`systemctl start named`
+- příkaz `host` podobný `nslookup`
+`sudo systemctl start named`
 ## DHCP
 - `/etc/dhcp/dhcp.conf`
 ```bash
@@ -321,5 +322,23 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
 	range 192.168.1.110 192.168.1.200;
 }
 ```
-`systemctl start isc-dhcp-server`
+`sudo systemctl start isc-dhcp-server`
 `ufw allow 67/udp`
+
+## FTP
+- **File Transfer Protocol**
+- `sudo apt install vsftpd ftp`
+- `sudo systemctl start vsftpd` `sudo servcice vsftpd start`
+
+`/etc/vsftpd/vsftpd.conf`
+```bash
+# povollení anonymního přístupu
+anonymous_enable=YES
+no_anon_password=YES
+anon_root
+
+# nastavení rozsahu portů
+pasv_enable=YES
+pasv_max_port=15000
+pasv_min_port=25000
+```

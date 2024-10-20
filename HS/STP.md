@@ -1,5 +1,5 @@
 ### Spanning tree protocol
-- 801.1D
+- 802.1D
 - Zabraňuje tvorbě smyčkám a broadcast storms
 - #Linková vrstva
 - #BPDU rámce **Bridge Protocol Data Unit**

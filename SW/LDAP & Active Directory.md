@@ -4,6 +4,10 @@
 - vyhledávání, správa, uspořádání (svazky, složky, soubory, tiskárny atd.)
 - Využívá adresářová služba Active Directory
 
+- Databáze objekt v doméně (počítče, tiskárny, uživatelé)
+	- #DN - #Distinguished_name - identifikátor objektu
+		- #cn - atribut common name
+		- #dc - atribut domain controller
 #Active_Directory
 - řadič domény
 - využívá #LDAP 
@@ -125,6 +129,8 @@ dsadd group CN="<name>",CN=Users,DC=Firma,DC=com -scope g
 # LDAP na linuxu
 [[Unix-like systémy]]
 ## Server
+- balíček `opanldap`, služba `slapd`
+- `systemctl start slapd`
 ### Instalace
 ```sh
 yum install openldap openldap-servers
@@ -293,7 +299,7 @@ sudo apt install libnss-ldap libpam-ldap ldap-utils nscd
 getent passwd testuser #otestování záznamů uživatele testuser ze souboru passwd
 ```
 ### Konfigurace
-- většinu zajišťuje balíček `ldap-auth-config`
+- většinu zajišťuje balíček `ldap-auth-config` - zavedení do domény
 	- zadat identifikátor serveru #LDAP, báze vyhledávaní #LDAP, a verzi #LDAP
 - `/etc/ldap.conf`
 	- přihlašovací údaje uživatele root do #LDAP databáze

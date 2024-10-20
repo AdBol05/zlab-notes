@@ -9,7 +9,7 @@
 # Konfigurace
 ### IP adresa
 - IP -> Addresses -> +
-	- Address: `10.14.0.1/30` - *musí mít délu prefixu*
+	- Address: `10.14.0.1/30` - *musí mít délku prefixu*
 	- Network: `10.0.14.0`
 	- Interface: `ether2`
 ### Smazání konfigurace
