@@ -31,7 +31,7 @@ show ip protocols
 show ip ospf
 show ip ospf interface
 show ip route
-show i pospf interface brief
+show ip ospf interface brief
 ```
 ### Konvergence
 - #Konvergovaná_síť - všechny routery vědí všechno o všech ostatních routerech
@@ -174,7 +174,7 @@ show i pospf interface brief
 		- #Cost = #reference_bandwidth / #interface_bandwidth
 			- možní nastavení #reference_bandwidth 
 				- default `100,000,000`
-				- `int [interface] \n auto-cost reference bandwidth [bandwidth]`
+				- `auto-cost reference bandwidth [bandwidth]`
 			- zaokrouhlená na celé číslo
 			-> 10Gbe, Gigabit a 100Mbit stejná #Cost
 			- loopback má výchozí #Cost `1`
@@ -196,7 +196,7 @@ interface [default interface] # interface do nadřazené sítě
 ip address 64.100.0.1 255.255.255.252
 exit
 
-ip router 0.0.0.0 0.0.0.0 64.100.0.2 # default route
+ip route 0.0.0.0 0.0.0.0 64.100.0.2 # default route
 
 router ospf 10
 default-information originate

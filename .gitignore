@@ -1,0 +1,12 @@
+*.json
+./*/*.json
+./EKO
+./EKO/*
+./škola-administrace
+./škola-administrace/*
+./Laborky
+./Laborky/*
+./ZSV
+./ZSV/*
+./HSc-silnoproud
+./HSc-silnoproud/*

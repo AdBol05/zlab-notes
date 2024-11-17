@@ -143,7 +143,6 @@ server CNAME apache
 1 PTR ns.pepa.koko  ; za 1 se připojuej $ORIGIN .69.168.192
 ```
 
-
 `sudo systemctl start named`
 
 
@@ -151,3 +150,23 @@ server CNAME apache
 - `sudo apt install dnsutils`
 	- `dig @nameserver domain_name` - dopředný překlad
 	- `dig @nameserver -x ip_address` - zpětný překlad
+
+# NAT
+`sudo apt install systemd-resolved`
+`sudo apt install iptables`
+
+`sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE`
+
+![[Konfigurace sítě 2024-10-22 08.38.00.excalidraw]]
+
+# SSH
+- `~/.ssh/config`
+```bash
+host R
+user fresh
+hostname router
+port 22
+```
+
+- `ssh-keygen`
+- `ssh-copy-id <host>`

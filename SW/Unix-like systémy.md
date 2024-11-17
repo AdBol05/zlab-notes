@@ -305,7 +305,7 @@ www.web1 IN CNAME web1
 - příkaz `host` podobný `nslookup`
 `sudo systemctl start named`
 ## DHCP
-- `/etc/dhcp/dhcp.conf`
+- `/etc/dhcp/dhcpd.conf`
 ```bash
 option domain-name "firma.lan";
 option domain-name-servers ns1.firma.lan, ns2.firma.lan;

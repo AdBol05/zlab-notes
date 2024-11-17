@@ -15,7 +15,7 @@ Zabezpečení #LAN
 - #VPN-Enabled_Router
 	- Poskytuje #VPN server
 - #NGFW - **Next-Generation Fire Wall**
-	- kontrola packetů
+	- kontrola packetů i na aplikační vrstvě
 	- #NGIPS - **Next-Generation Intrusion Prevention System**
 	- #AMP - **Advanced Malware Protection**
 	- URL filtering
