@@ -149,7 +149,7 @@ show ip ospf interface brief
 - `do show ip ospf interface [interface]`
 # Konfigurace
 `do show ip protocols`
-- konfigurační mód `router ospf [process-id]`
+- konfigurační mód `router ospf [process-id]` / `ipv6 router ospf [process-id]`
 	- *process-id* - identifikátor OSPF procesu (1 - 65535)
 		- více procesů
 	1. #Router_ID formát IPv4 adresy `router-id [RouterID]`

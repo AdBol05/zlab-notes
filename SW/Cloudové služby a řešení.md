@@ -1,6 +1,6 @@
 #Azure
 - **pronájem výpočetních služeb**
-	- #Virtualní_počítač - [[Virtualizace a Kontejnerizace]]
+	- #Virtualní_počítač - [[Virtualizace a Kontejnerizace]] ( #Virtualizace_serverů  )
 	- úložiště
 	- databáze
 	- #IoT
@@ -66,7 +66,7 @@
 	- lze mít více předplatných v rámci jednoho účtu
 - v předplatném lze vytvářet #skupiny_prostředků a v nich poté jednotlivé #prostředky
 	- #skupiny_prostředků - seskupení #prostředky (základní komponenta - počítač, databáze atd.)
-		- může být navázána jen na jedno předlatné
+		- může být navázána jen na jedno předplatné
 			- jeden účet může mít více předplatných
 		- nelze je vnořovat
 		- některé #prostředky lze přesouvat mezi skupinami
@@ -87,3 +87,102 @@
 	- instance Azure oddělené od hlavní instance
 	- oddělené z politických nebo zákonných důvodů
 	- *US Gov Virginia, China, ..*
+
+# Výpočetní služby Azure
+- #Virtualní_počítač
+	- #IaaS řešení
+		- plná kontrola nad operačním systémem
+		- vlastní software a služby
+		- vlastní konfigurace
+		- #NSG - **Network Security Group**
+			- Povolení/zakázaní portů
+			- "Firewall" virtuálního počítače
+	- vytváření podle #šablona
+		- JSON soubor s definicí stroje
+- #Škálovací_sada
+	- skupina #Virtualní_počítač se stejnou konfigurací -> #Load_Balancing 
+		- rozložení zátěže na více strojů
+- #Skupina_dostupnosti 
+	- seskupení do #Update_domain nebo #Fault_domain -> #Load_Balancing 
+		- #Update_domain - seskupení počítačů k instalaci aktualizací
+			- možný restart kvůli aktualizaci bez výpadku služby
+				- rozložení na počítače v jiné #Update_domain 
+		- #Fault_domain - skupiny počítačů připojené na jinou infrastrukturu
+			- redundance v případě výpadku např. switche nebo napájení
+- #Virtual_desktop
+	- Windows OS běžící v cloudu (Windows 10, WIndows 11)
+	- #multisession - možnost současného přihlášení více uživatelů
+- #Azure_container 
+	- Instance  #PaaS umožňující načtení spouštění #kontejner 
+	- #mikroslužby - jednotlivá řešení rozdělena do menších (na sobě nezávislých) celků
+- #Azure_functions 
+	- Bezserverové řešení řízené událostmi -> Naprogramované funkce se spouští v reakci na události
+	- Automatické škálování
+	- Platba za čas CPU potřebný pro běh funkce
+	- #Stateless (bezstavové) - při každé reakci se spouští nezávisle na přechozím stavu
+	- #Stateful (stavové) - při reakci se funkci předává kontext předchozích aktivit
+- #Azure_app_service
+	- vytváření a provozování webových aplikací
+		- #API aplikace -> #REST_API
+		- webové aplikace
+		- WebJobs
+		- Mobilní aplikace
+	- automatické škálování a vysoká dotupnost
+	- podpora WIndows, #Linux 
+	- automatizované nasazování z GitHubu, #Azure DevOps, Git ...
+
+# Virtuální sítě
+- Zajištění komunikace mezi prostředky #Azure a s klientskými počítači v #On-Premise prostředí
+	-> rozšíření stávajícího #On-Premise 
+	- Izolace a segmentace
+	- komunikace na internetu
+	- komunikace mezi prostředky #Azure 
+	- komunikace s prostředky #On-Premise 
+		- #point-to-site - VPN z počítače mimo firmu do firemní (cloudové) sítě
+		- #site-to-site - VPN z #On-Premise brány k #Azure_VPN_Gateway 
+		- #Azure_ExpressRoute - vyhrazené připojení k #Azure (nejde přes intenet - privátní linky)
+	- routing - mezi virtuálními i #On-Premise sítěmi
+	- filtrování síťového provozu
+	- propojení virtuálních sítí
+- Integrovaná podpora koncových bodů veřejných i privátních IP adres 
+	-> možnost privátních i veřejných IP adres 
+- #Azure_VPN
+	 - #policy_based VPN - výběr tunelu na základě IP adresy (pravidla)
+	 - #route_basde VPN - definice rozhraní, definované routingem
+		- #On-Premise -> propojení virt. sítí, #point-to-site 
+	- odolnost #Azure_VPN_Gateway 
+		- #active/standby instance -> aktivní a záložní gateway
+		- #active/active instance -> dvě instance, dvě IP adresy, dvě připojení
+		- #Azure_ExpressRoute failover -> #Azure_VPN_Gateway jako záloha při výpadku
+		- #Zone_redundant gateway -> #Azure_VPN_Gateway v #zóna_dostupnosti 
+
+# Azure DNS
+- překlad prostřednisctvím infrastruktury #Azure 
+- spolehlivý, výkonný, bezpečný (marketing intensifies)
+- interní i externí prostředky, privátní domény, aliasy
+
+# Služby úložiště Azure
+- #Azure_storage -> úložiště přístup né odkudkoliv (**HTTP, HTTPS**)
+- dostupnost, škálovatelnost atd.
+- různé typy účtů -> služby a možnosti redundance
+- Endpoint pro účet úložiště definovaný kombinací názvu účtu a endpointu služby #Azure_storage 
+	- `https://<account>.<type>.core.windows.net`
+- uložení několiv kopií -> #redundance
+	- **Redundance v primární oblasti**
+		- #LRS - **Locally Redundant Storage**
+			- tři kopie v jednom datacentru (v primární oblasti)
+			- ochrana před výpadkem disku nebo serveru
+			- ==výchozí nastavení==
+		- #ZRS - **Zone Redundant Storage**
+			- využití #zóna_dostupnosti 
+			- synchronní replikace dat přes tři #zóna_dostupnosti 
+			- ochrana i před výpadkem celého datacentra nebo #oblast 
+	- **Redundance v sekundátrní oblasti**
+		- kopie do oblasti vzdálené několik set kilometrů od primární oblasti
+			- ochrana před haváriv primární oblasti
+		- #GRS - **Geo-redundant storage**
+			- asynchronní replikace #LRS do sekundární oblasti
+		- #GZRS - **Geo-zone-redundant storage**
+			- #ZRS s trojitou kopií do jednoho datacentra v sekundární oblasti
+		- Standardně se přístup k sekundární oblasti povolí až po selhání primární oblasti
+			- Možnost manuálního povolení vytvořením #RA-GRS nebo #RA-GZRS - *Read-access ...*

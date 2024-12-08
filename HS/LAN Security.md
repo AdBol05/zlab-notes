@@ -1,8 +1,12 @@
 Zabezpečení #LAN
 ## Útoky
-- #DDoS 
-	- **Distributed Denial of Service**
+- #DDoS & #DOS
+	- **(Distributed) Denial of Service**
 	- zahlcení cíle requesty z infikovaných zařízení v botnetu - "zombies"
+		- #TCP three way handshake
+		- #ICMP ping replies
+		- zahlcení sílového zařízení #UDP datagramy na všechny porty
+			- zneužití #ICMP odpovědi `port unreachable`
 - #Data_Breach
 	- únik citlivých dat
 - #Malware
@@ -10,17 +14,29 @@ Zabezpečení #LAN
 		- #Ransomware - zašifrování dat a požadování platby za rozšifrování
 		- #Spyware - sbírá citlivá data na pozadí a odesílá je
 		- #Worm - kopíruje sám sebe a připojuje se k souborům -> zahlcení disku
+- #Průzkumné útoky
+	- shromažďování informací o síti, systémech, službách atd.
+		- *ping sweep* - zjištění dostupných IP adres
+		- *Nmap* - IP adresy a porty
+- #Přístupové útoky
+	- útoky na hesla
+		- Brute force
+		- Spoofing
 
 # Bezpečnostní zařízení
 - #VPN-Enabled_Router
 	- Poskytuje #VPN server
+		- #VPN - šifrovaný komunikační tunel napříč veřejnou sítí
 - #NGFW - **Next-Generation Fire Wall**
 	- kontrola packetů i na aplikační vrstvě
 	- #NGIPS - **Next-Generation Intrusion Prevention System**
 	- #AMP - **Advanced Malware Protection**
 	- URL filtering
+- #ASA - **Adaptive Security Appliance**
+	- adaptivní firewall -> filtrace provozu
 - #NAC - **Network Access Control**
-	- #AAA - **Authentiation, Authorization, Accounting**
+	- #AAA - **Authentiation, Authorization, Auditing
+		- ověřování uživatelů a jejích přístupů
 	- #ISE - **Cisco Identity Services Engine** 
 - Cisco #ESA - **Email Security Appliance**
 	- monitoring #SMTP
@@ -32,6 +48,10 @@ Zabezpečení #LAN
 	- malware scan
 	- šifruje a dešifruje webovou komunikaci
 - #HIPSs - **Host-based Intrusion prevention systems**
+- #IPS / #IDS - **Intrusion Prevention System** / **Intrusion Detection System**
+	- komplexní systémy na detekci a ochranu před hrozbami
+	- #IDS - detekce neobvyklou aktivitu -> generace upozornění
+	- #IPS - aktivní blokace nebezpečný provoz
 
 # Access control
 - #console
@@ -62,6 +82,13 @@ login local
 		- #RADIUS - **Remote Authentication Dial-In User Service**
 		- #TACACS - **Terminal Access Controller Access Control System**
 
+#CIA
+- #Confidentiality 
+	- K citlivým informacím mají přístup pouze oprávněné subjekty
+- #Integrity 
+	- Ochrana dat před neoprávněnou změnou
+- #Availability
+	- Oprávněné subjekty mají nepřerušený přístup
 ### 802.1X
 - zabezpečuje přístup k LAN portu
 - server ověří každou připojenou stanici před udělením přístupu ke službám v síti
@@ -113,7 +140,11 @@ login local
 - ### zneužití #CDP **Cisco Discovery Protocol**
 	- #CDP_Reconnaissance (průzkum) - broadcast, nešifrované
 		- útočník se dozvídá o topologii sítě
-
+- ### DNS attacks
+	- #DNS *open resolver attacks*
+	- #DNS *stealth attacks*
+	- #DNS *domain shadowing attacks*
+	- #DNS *tunnelling attacks*
 
 # DHCP snooping
 #DHCP_snooping 
@@ -201,3 +232,14 @@ login local
 - záznam událostí na systému
 - `debug ?` - živý výpis událostí
 - obsahuje změny #violation_counter
+
+# Kryptografie
+- věda/nauka o šífrování
+-> zabezpečení dat během přenosu
+- Podmínky bezpečné komunikace
+	- **Integrita** - zaručení, že data nebyla v přenosu změněna 
+		-> #HASH (SHA, MD5)
+	- **Ověření původu** - zaručení, že zpráva není padělána
+		-> #HMAC *Hash Message Athentication Code*
+	- **Důvěrnost dat** - zaručuje, že data mohou být přečtena pouze oprávněnými uživateli
+	- **Nepopíratelnost **
