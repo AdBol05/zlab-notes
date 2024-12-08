@@ -1,5 +1,5 @@
 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJM_B52nhqR-QrvDzp-2V0GCwmyG_0DWmsJA&usqp=CAU">
-
+![[Pasted image 20241208170825.png]]
 #Fyzická
 - Koncová zařízení (PC, server)
 - Zprostředkující zařízení (router, switch)
