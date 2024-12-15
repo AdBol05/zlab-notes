@@ -162,11 +162,17 @@
 - interní i externí prostředky, privátní domény, aliasy
 
 # Služby úložiště Azure
-- #Azure_storage -> úložiště přístup né odkudkoliv (**HTTP, HTTPS**)
+- #Azure_storage -> úložiště přístupné odkudkoliv (**HTTP, HTTPS**)
 - dostupnost, škálovatelnost atd.
 - různé typy účtů -> služby a možnosti redundance
+- ==vyžaduje storage account==
 - Endpoint pro účet úložiště definovaný kombinací názvu účtu a endpointu služby #Azure_storage 
 	- `https://<account>.<type>.core.windows.net`
+	- #Blob storage
+	- #Data_lake storage gen2
+	- Azure files
+	- #Qeue storage
+	- Table storage
 - uložení několiv kopií -> #redundance
 	- **Redundance v primární oblasti**
 		- #LRS - **Locally Redundant Storage**
@@ -179,10 +185,44 @@
 			- ochrana i před výpadkem celého datacentra nebo #oblast 
 	- **Redundance v sekundátrní oblasti**
 		- kopie do oblasti vzdálené několik set kilometrů od primární oblasti
-			- ochrana před haváriv primární oblasti
+			- ochrana před havárií primární oblasti
 		- #GRS - **Geo-redundant storage**
 			- asynchronní replikace #LRS do sekundární oblasti
 		- #GZRS - **Geo-zone-redundant storage**
 			- #ZRS s trojitou kopií do jednoho datacentra v sekundární oblasti
 		- Standardně se přístup k sekundární oblasti povolí až po selhání primární oblasti
 			- Možnost manuálního povolení vytvořením #RA-GRS nebo #RA-GZRS - *Read-access ...*
+- #Azure_Blob
+	- Univerzální, nestrukturované
+	- Binární, textová data
+	- Podpora big data
+	- Přístup:
+		- #Hot_access - velmi častý přístup
+		- #Cool_access - velmi málo častý přístup
+		- #Archive_access - velmi málo častý přístup, levné uložení, drahý přístup
+- #Azure_Files
+	- Sdílení souborů pomocí #SMB nebo #NFS
+	- #On-Premise i cloud
+	- #Azure #File_sync Možnost sdílené prostředky uložit do cache serverů [[Windows server]]
+	- podpora skriptování
+- #Azure_Qeue 
+	- Úložiště (asynchronní) pro zprávy zasílaně mezi komponentami aplikací
+	- max 64 KB
+	- přístup HTTP, HTTPS
+	- Využíváno #Azure_functions 
+- #Azure_Disks
+	- Blokové ůložiště pro prácí s #Virtualní_počítač 
+	- Běžné disky s odolností a dostupností
+
+# Možnosti migrace dat
+- #Azure_Migrate - pomocník pro migraci z #On-Premise do cloudu
+	- #On-Premise i #Virtualní_počítač 
+- #Azure_DataBox - fyzický přesun velkých objemů dat (80 TB)
+	- zákazník obdrží fyzické úložiště, které se následně převeze do datacentra
+	- možnost i onovy z cloudu
+
+# Možnost přesunu souborů
+- #AzCopy - CLI nástroj pro kopírování souborů nebo #Blob 
+- #Azure_Storage_explorer - frontend pro #AzCopy 
+- #Azure_FileSync - centralizace sdílených souborů v #Azure_Files 
+	- synchonizace s [[Windows server]] -> tvorba #CDN - **Content Delivery Network**

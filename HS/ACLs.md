@@ -7,6 +7,9 @@ access-list <access-list-number> {deny | permit | remark} <source> [source-wildc
 
 int g0/0
 ip access-group <name/id> <out/in>
+
+show ip int g0/0/0
+show access-list # ukazuje počet odbavení
 ```
 - ==Ve výchozím stavu nejsou aplikovavané žádné ACE a výchozí nastavení je deny any==
 	- expilcitní povolování
@@ -14,8 +17,10 @@ ip access-group <name/id> <out/in>
 - #Standard_ACLs - filtr pouze dle zdrojové IP adresy, většinou na #Inboud 
 	- `access-list 10 permit 192.168.30.0 0.0.0.255` -> `1`-`99` #Standard_ACLs 
 	- ==Neaplikují se na packety vznikající na routeru==
+	- automaticky se seřadí, aby se jako první odbavovali host plravidla
 - #Extended_ACLs - filtr dle dalších atributů (cílová a zdrojová IP adresa, protokol, TCP/UDP port)
 	- `access-list 103 permit tcp 192.168.30.0 0.0.0.255 any eq 80` -> `100`-`199` #Extended_ACLs 
+	- `access-list 114 permit tcp 192.168.20.0 0.0.0.255 any eq telnet`
 
 - #Numbered_ACLs - čísla pravidel
 - #Named_ACLs - definovaná názvem, vlastní konfigurační rozhraní
@@ -65,4 +70,17 @@ permit host 192.168.10.10
 deny any
 int g0/0/1
 ip access-group LAN2-FILTER out
+```
+
+## Standard ACL pro bezpečný terminálový přístup
+- přístup pouze z management [[VLAN]]
+- SSH, lokální uživatel
+```bash
+line vty 0 15
+login local
+transport input ssh
+access-class 21 in
+exit
+access-list 21 permit 192.168.10.0 0.0.0.255 # management VLAN
+access-list 21 deny any
 ```
