@@ -173,7 +173,7 @@
 	- Azure files
 	- #Qeue storage
 	- Table storage
-- uložení několiv kopií -> #redundance
+- uložení několik kopií -> #redundance
 	- **Redundance v primární oblasti**
 		- #LRS - **Locally Redundant Storage**
 			- tři kopie v jednom datacentru (v primární oblasti)
@@ -203,7 +203,7 @@
 - #Azure_Files
 	- Sdílení souborů pomocí #SMB nebo #NFS
 	- #On-Premise i cloud
-	- #Azure #File_sync Možnost sdílené prostředky uložit do cache serverů [[Windows server]]
+	- #Azure_FileSync Možnost sdílené prostředky uložit do cache serverů [[Windows server]]
 	- podpora skriptování
 - #Azure_Qeue 
 	- Úložiště (asynchronní) pro zprávy zasílaně mezi komponentami aplikací
@@ -211,18 +211,27 @@
 	- přístup HTTP, HTTPS
 	- Využíváno #Azure_functions 
 - #Azure_Disks
-	- Blokové ůložiště pro prácí s #Virtualní_počítač 
+	- Blokové úložiště pro práci s #Virtualní_počítač 
 	- Běžné disky s odolností a dostupností
 
-# Možnosti migrace dat
+## Možnosti migrace dat
 - #Azure_Migrate - pomocník pro migraci z #On-Premise do cloudu
 	- #On-Premise i #Virtualní_počítač 
 - #Azure_DataBox - fyzický přesun velkých objemů dat (80 TB)
 	- zákazník obdrží fyzické úložiště, které se následně převeze do datacentra
 	- možnost i onovy z cloudu
 
-# Možnost přesunu souborů
+## Možnost přesunu souborů
 - #AzCopy - CLI nástroj pro kopírování souborů nebo #Blob 
 - #Azure_Storage_explorer - frontend pro #AzCopy 
 - #Azure_FileSync - centralizace sdílených souborů v #Azure_Files 
 	- synchonizace s [[Windows server]] -> tvorba #CDN - **Content Delivery Network**
+
+# Adresářová služba Azure
+- Microsoft #EntraID Domain Services
+	- #Entra_Connect možnost propojení s #On-Premise #Active_Directory 
+	- přihlášení ke cloudovým i vlastním aplikacím
+	- spravované doménové služby
+	- monitorování podezřelých pokusů o přihlášení
+- #SSO **Single Sign On** - přístup k více aplikacím po jednom úspěšném ověření
+	- synchronizace s [[Windows server]] -> tvorba #CDN - **Content Delivery Network**
