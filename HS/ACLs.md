@@ -2,7 +2,7 @@
 	- jednotlivá pravidla -> #ACE **Access Controll Entries**
 - #Inboud #ACL - příchozí, před routováním
 - #Outbound #ACL - odchozí, před předáním driverům síťovky
-```bash
+```
 access-list <access-list-number> {deny | permit | remark} <source> [source-wildcard] [log]
 
 int g0/0
@@ -17,10 +17,11 @@ show access-list # ukazuje počet odbavení
 - #Standard_ACLs - filtr pouze dle zdrojové IP adresy, většinou na #Inboud 
 	- `access-list 10 permit 192.168.30.0 0.0.0.255` -> `1`-`99` #Standard_ACLs 
 	- ==Neaplikují se na packety vznikající na routeru==
-	- automaticky se seřadí, aby se jako první odbavovali host plravidla
+	- automaticky se seřadí, aby se jako první odbavovali host pravidla
 - #Extended_ACLs - filtr dle dalších atributů (cílová a zdrojová IP adresa, protokol, TCP/UDP port)
 	- `access-list 103 permit tcp 192.168.30.0 0.0.0.255 any eq 80` -> `100`-`199` #Extended_ACLs 
 	- `access-list 114 permit tcp 192.168.20.0 0.0.0.255 any eq telnet`
+	- ideálně co nejblíže ke zdroji
 
 - #Numbered_ACLs - čísla pravidel
 - #Named_ACLs - definovaná názvem, vlastní konfigurační rozhraní

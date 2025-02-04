@@ -6,6 +6,8 @@
 - Přenosové médium (metalika, optika, elektromagnetické záření)
 - kódování/dekódování
 - přenos na přenosové médium
+- [[WAN]]
+	- #DWDM - Dense Wawelength Division Multiplexing
 
 #Linková (spojová)
 - Propojení sousedních uzlů
@@ -25,6 +27,11 @@
 	- LLC - Logical Link Control
 		- #CSMA/CA - Collision Avoidance
 		- #CSMA/CD - Collision Detection
+- [[WAN]]
+	- #Metro-ethernet - Ethernet #WAN 
+	- širokopásmové standardy #DSL , "kabelovka" - #Cable
+	- #MPLS - Multiprotocol Label Switching
+
 
 #Síťová
 - Propojuje LAN

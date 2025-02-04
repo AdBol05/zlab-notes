@@ -1,4 +1,4 @@
-### Spanning tree protocol
+ ### Spanning tree protocol
 - 802.1D
 - Zabraňuje tvorbě smyčkám a broadcast storms
 - #Linková vrstva

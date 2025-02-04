@@ -1,10 +1,11 @@
 - half duplex
 - kolize -> #Kolizní_Domény
 	- #CSMA/CA
-		- vysílající uzel zasílá #RTS (*Request To Send*) rámec určený pro #AccessPoint
+		- vysílající uzel za ticha zasílá #RTS (*Request To Send*) rámec určený pro #AccessPoint
 			- žádá o právo vysílat
 			- informuje o délce vysílání
 			- zachytávají i ostatní uzly
+			- přijímá #CTS (*Clear To Send*) - "rezervace" času na vysílání
 		- #AccessPoint odpovídá #CTS (*Clear To send*) rámcem
 			- povoluje vysílání
 			- informuje o délce vysílání
@@ -18,6 +19,7 @@
 		- ~~polosměrová~~
 		- #MIMO - *Multiple Inputs Multiple Outputs*
 			- konfigurace antén předchozích typů
+			- více přijímacích/nebo odesílajících kanálů - stále *half-duplex*
 	- vysílač + přijímač
 - #AccessPoint / #WiFi router -> [[Routing]] mezi drátovou a bezdrátovou sítí
 	- #Autonomous
@@ -79,6 +81,7 @@
 	- #Infrastructure
 		- centrální #AccessPoint
 		- bridge mezi bezdrátovou a drátovou sítí ( [[Routing]] )
+		- "*převod ethernet rámců na elektromagnetické vlny*"
 	- #IBSS / #AdHoc 
 		- *peer-to-peer* - #point-to-point
 		- bez centrálního #AccessPoint

@@ -72,3 +72,16 @@ int g0/0.90
 ipv6 add fe80::1 link-local
 ipv6 add 2001:acad:abc:90::1/64
 ```
+
+# Privátní adresy v IPv6
+- #ULA - *Unique Local address*
+	- prefix `FC00::/7` (od `FC00` do `FDFF`)
+
+# Realizace souběžnosti IPv4 a IPv6
+- #Dual_stack - routující zařízení je schopné obsloužit IPv4 a IPv6
+- #Tunneling - IPv6 packety se na routeru zapouzdřují do IPv4 packetů (nebo naopak)
+	- propojení dvou IPv6 sítí přes IPv4 síť
+- #NAT64 / #DNS64 
+	- #Stateless [[NAT]]64 - nejprve je nutné přeložit IPv6 adresu na odpovídající IPv4 adresupřed odesláním do IPv4 sítě
+		- vazba jedné IPv4 adresy na jednu IPv6 adresu -> #Static [[NAT]]
+	- #Stateful [[NAT]]64 - podobný #PAT

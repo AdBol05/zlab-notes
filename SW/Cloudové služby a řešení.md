@@ -50,7 +50,7 @@
 
 ### Typy nákladů
 - kapitálové náklady - Koupě vlastní infrastruktury
-- provozní náklady - Cloudové služby
+- provozní náklady - Cloudové služby #OpEx
 
 ## Správa cloudu
 - *Webový portál, (Azure) CLI, API, PowerShell*
@@ -228,10 +228,120 @@
 	- synchonizace s [[Windows server]] -> tvorba #CDN - **Content Delivery Network**
 
 # Adresářová služba Azure
-- Microsoft #EntraID Domain Services
+- Microsoft #Entra Domain Services
 	- #Entra_Connect možnost propojení s #On-Premise #Active_Directory 
+		-  z #Entra ID do domain services
 	- přihlášení ke cloudovým i vlastním aplikacím
 	- spravované doménové služby
 	- monitorování podezřelých pokusů o přihlášení
-- #SSO **Single Sign On** - přístup k více aplikacím po jednom úspěšném ověření
-	- synchronizace s [[Windows server]] -> tvorba #CDN - **Content Delivery Network**
+	- #SSO **Single Sign On** - přístup k více aplikacím po jednom úspěšném ověření
+![[Microsoft-Kyle-Blog-1.png]]
+### Metody ověřování v Azure
+- Jméno a heslo
+- #SSO 
+- #Multifactor #MFA - vícefaktorové ověření, požadováno více druhů ověření
+- Bez použití hesla
+	- Biometrie - otisk prstu, sken obličeje ... -> #Windows_Hello
+	- Microsoft #Authenticator -> #MFA
+	- Bezpečnostní klíče #FIDO2 - *Fast IDentity Online*, externí bezpečnostní klíč (USB, Bluetooth, NFC)
+
+### Externí identita
+- Přihlášení uživatelů mimo firmu (není zaměstnanec) do firemní infrastruktury
+- #B2B *Collaboration* - externí uživatelé jsou ověřováni třetí stranou (důvěřovanou microsoftem - Google, Facebook...), přihlášení jako #guest 
+- #B2B *Direct connect* - vzájemný důvěryhodný vztah dvou firem, vyžaduje #Entra ID v obou firmách
+- #Entra #B2C - poskytování aplikací zákazníkům za použití #Azure #Active_Directory
+
+# Zabezpečení v Azure
+- ## Podmíněný přístup
+	- Povolení / zamítnutí přístupu na základě identity uživatele, místa přihlášení a použitého zařízení
+	- Vyžaduje #MFA v nestandardních situacích
+	- Při přihlašování se vyhodnocují různé *signály* -> povolení / zamítnutí / požadavek na #MFA
+- #RBAC **Role Based Access Control**
+	- přístup na základě přiřazených rolí
+		- každá role má přiřazená oprávnění
+			- #Reader
+			- #Contributor
+			- #Owner
+		- aplikace na #scope -> #prostředky #skupiny_prostředků Management group
+		- #dědičnost -> role se propisují na vnořené prostředky
+	- princip povolování přístupu
+- ## Model Zero trust
+	- každý požadavek považuje jako by přicházel z nedůvěryhodné sítě
+	- "Nikomu nedůvěřuj"
+	- Důsledné ověřování, nejmenší potřebná oprávnění, očekávání incidentů
+- ## Model defense-in-depth
+	- Ochrana dat před zcizením
+	- Ochranné vrstvy, data veprostřed (chráněná okolními vrstvami)
+		- Zpomalení útoku -> útočník musí prolomit jednu vrstvu za druhou
+		- #Fyzické_zabezpečení - přístup do budovy
+		- #Identita_a_přístup - řízení přístupu k infrastruktuře, využití #SSO a #MFA , audit událostí a změn
+		- #Perimetr - identifikace a ochrana před síťovými útoky, varování a likvidace, firewall, ochrana před DDoS
+		- #Síť - omezení konektivity na minimum
+		- Výpočetní #prostředky  - zabezpečení přístupů k #Virtualní_počítač a fyzickým #prostředky , aktualizace a ochrana koncových uzlů
+		- #Aplikace - odolávání zranitelností v kódu
+		- #Data - ochrana pomocí #prostředky a procesů k zajištění #CIA
+
+- ## Microsoft Defender for Cloud
+	- Sledování zabezpečení a ochrana v #Azure 
+	- Monitorování cloudu, #On-Premise , Hybridního i multicloudového prostředí
+		- rady a upozornění na zlepšení bezpečnosti
+	- Nasazení na počítače mimo #Azure pomocí #Azure_Arc v multicloudu pomocí funce #CSPM - **Cloud Security Posture Management**
+	- Nativně integrován do služeb #Azure #PaaS, Datových služeb #Azure a sítí
+	- Funkce:
+		- Sledování stavu zabezpečení a identifikace zranitelností
+		- Zabezpečení pomocí zásad zabezpečení v #Azure_Policy
+
+# Náklady v Azure
+- Provozní náklady #OpEx
+- Ovlivněno
+	- Druh a oblast nasazení #prostředky 
+	- Využití #prostředky 
+	- Správa #prostředky 
+	- Zeměpisné umístění
+	- Síťový provoz
+	- Typ předplatného
+- #Azure Marketplace -> možnost zakoupit hotová řešení třetími stranami
+- Nástroje
+	- Cenová kalkulačka - výpočet odhadu výdajů za služby
+	- #TCO - **Total Cost of Ownership** - kalkulačka celkových nákladů na vlastnictví, porovnání #On-Premise a cloudové infrastruktury
+	- Nástroj pro správu nákladů - rychlá kontrola nákladů na #prostředky #Azure , varování, rozpočty a automatizace správy, analýza nákladů firmy
+		- Upozornění na náklady
+			- Budget alerts - překročení rozpočtu
+			- Credit alerts - blížící se vyčerpání prostředků
+			- Department spending quota alerts - překročení dané kvóty oddělením firmy
+
+# Značky
+- #tags - třídění a organizace #prostředky 
+- využití
+	- správa prostředků
+	- optimalizace nákladů
+	- správa operací
+	- zabezpečení
+	- zajištění souladu a správného vedení firmy
+	- automatizace a optimalizace pracovních procesů
+- Lze spravovat portálem, CLI, REST API
+- Název a hodnota
+
+# Azure blueprints
+- #blueprint - soubor nastavení a parametrů -> "*šablona*"
+- #artifact - komponent #blueprint , který může (ale nemusí) obsahovat přídavné parametry
+	- role a zásady
+	- skupiny prostředků
+	- šablony ARM
+	- podpora verzování
+- Zajištění standardizace předplatného služeb nebo prostředí pro nasazení
+- Klonování nastavení a zásad na nové předplatné
+
+# Microsoft purview
+- správa dat v #On-Premise řešení, #SaaS a multicloudu
+- automatické objevování dat -> třídění, tvorba "rodokmenu", třídí citlivá data
+- funkce Microsoft 365 
+- mapy, vyhledávání, přehledy, využití, přístupy k datům
+
+# Azure policy
+- správa a přiřazování zásad
+- #Audit #prostředky 
+- vynucení konfiugurace v souladu se standardy firmy
+	- prověřování -> zákaz vytváření #prostředky bez souladu se standardy
+- zásady se dědí na podřízené #prostředky 
+- schopnost opravy nekompatibilních zásad
