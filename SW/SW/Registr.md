@@ -1,0 +1,5 @@
+- Centrální zabezpečená databáze nastavení
+	- konfigurace hardwaru
+	- konfigurace softwaru
+	- zásady zabezpečení
+	- nastavení uživatelů

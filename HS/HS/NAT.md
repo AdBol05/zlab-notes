@@ -1,0 +1,62 @@
+- #NAT - **Network Address Translation**
+- privátní IPv4 adresy nelze v internetu routovat
+- nedostatek veřejných IPv4 adres - 3,7 miliard veřejných adres
+- Privátní adresy:
+	- 10.0.0.0/8 - 16 777 216 adres
+	- 172.16.0.0/12 - 
+- Řešení
+	- IPv6
+		- 3,4 x 10^38 adres
+		- 1994 začátek vývoje
+		- 2012 - významnější plošné zavádění (ve WAN), současně max 45% globálního provozu v IPv6
+	- #NAT 
+		- Překlad privátních IPv4 adres na jednu veřejnou hraničního routeru do internetu
+		- Lepší flexibilita, přehlednost privátní sítě, zabezpečení koncové sítě
+		- Klesá výkon sítě, snižuje end-to-end funkcionalitu, komplikuje tunelování (narušuje šifru packetu), může narušit TCP spojení
+		- ### Terminologie
+			- *Vnitřní síť* - privátní IP adresy
+			- *Vnější síť* - např. internet
+			- typy IP adres
+				- *Vnitřní lokální adresy* - *Inside local address* zdrojová privátní
+				- *Vnitřní globální adresy* - *Inside global address* zdrojová veřejná 
+				- *Vnější lokální adresy* - *Outside local address* cílová adresa
+				- *Vnější globální adresy* - *Outside global address* cíloví adresa
+
+# Druhy NAT
+- ### Statický NAT  
+	- #Static #NAT
+	- Mapování lokálních a globálních adres 1:1
+	- Zajištění dostupnosti serveru z vnitřní sítě ve veřejné síti
+	- #### Konfigurace
+		- `ip nat inside source static 192.168.10.254 209.165.201.5`
+		- `int s0/1/0`
+		- `ip add 192.168.1.2 255.255.255.0`
+		- `ip nat inside`
+		- ...
+		- `show ip ant translation`
+		- `show ip nat translation`
+- ### Dynamický NAT
+	- #Dynamic #NAT
+	- Rozsah (pool) veřejných IP adres -> dočasné přidělení na vyžádání
+	- Jedna privátní adresa je dynamicky přeložena na jednu veřejnou
+	- ==Riziko vyčerpání poolu==
+	- #### Konfigurace
+		- `ip nat pool NAT-POOL1 209.165.200.226 209.165.200.240 netmask 255.255.255.128`
+		- `access-list 1 permit 192.168.0.0 0.0.255.255`  - [[ACLs]] povolující NATování
+		- `ip nat inside source list 1 pool NAT-POOL1` - přiřazení [[ACLs]] a poolu
+		- `int g0/0`
+		- `ip nat [inside/outside]`
+- ### Port Address Translation
+	- #PAT ( #NAT_overload )
+	- Nejefektivnější -> nejpoužívanější
+	- Mnoho privátních adres na jednu či více veřejných adres
+	- K mapování používá dvojici port + zdrojová IP adresa
+	- Kontroluje vyžádání příchozích packetů (nepropouští nevyžádané odpovědi)
+	- #### Konfigurace
+		- `ip nat inside source list 1 pool NAT-POOL1 overload` - odchozí interface
+		- `access-list 1 permit 192.168.0.0 0.0.255.255`
+		- `int s0/1/0`
+		- `ip nat inside`
+		- `int s0/1/1`
+		- `ip nat outside`
+	![[Pasted image 20250109082138.png]]

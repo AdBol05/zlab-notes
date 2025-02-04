@@ -1,0 +1,4 @@
+- **BLOB**
+	- Bitmapa
+- **TINYINT()**
+	- 
