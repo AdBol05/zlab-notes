@@ -52,12 +52,21 @@
 - kapitálové náklady - Koupě vlastní infrastruktury
 - provozní náklady - Cloudové služby #OpEx
 
-## Správa cloudu
+# Nástroje pro správa cloudu (Azure)
 - *Webový portál, (Azure) CLI, API, PowerShell*
 - automatické škálování
 - nasazování prostředků pomocí šablon
 - monitorování
 - zasílání varování
+- ### Azure portal
+	- webový portál  pro správu
+- ### Azure Cloud Shell
+	- CLI v prostředí webového prohlížeče
+	- PowerShell, Bash
+- ### Azure PowerShell
+	- pracuje s tzv. cmdlety -> volá REST API
+- ### Azure CLI - (Bash shell)
+
 
 # Komponenty architektury Azure
 - sada nástrojů pro vytváření, správu a nasazování aplikací
@@ -335,13 +344,60 @@
 # Microsoft purview
 - správa dat v #On-Premise řešení, #SaaS a multicloudu
 - automatické objevování dat -> třídění, tvorba "rodokmenu", třídí citlivá data
-- funkce Microsoft 365 
+- funkce Microsoft 365
 - mapy, vyhledávání, přehledy, využití, přístupy k datům
 
 # Azure policy
 - správa a přiřazování zásad
 - #Audit #prostředky 
-- vynucení konfiugurace v souladu se standardy firmy
+- vynucení konfigurace v souladu se standardy firmy
 	- prověřování -> zákaz vytváření #prostředky bez souladu se standardy
 - zásady se dědí na podřízené #prostředky 
 - schopnost opravy nekompatibilních zásad
+- #iniciativa - skupina navzájem příbuzných zásad - např *Enable Monitoring in Azure Security Center*
+	- obsahuje jednotlivé zásady
+
+# Zámky prostředků
+- zamknutí prostředků - zabránění nechtěných změn nebo odstranění
+	- *delete* - zabraňuje odstranění prostředku
+	- *readOnly* - žádné úpravy konfigurace
+
+# Portál Service Trust
+- zajištění přístupu k různému obsahu, nástrojům atd.
+	- zabezpečení a soukromí -> soulad s normami a standardy (*GDPR ...*)
+- Podrobné údaje o mechanismu řízení a procesech pro ochranu služeb a dat zákazníků
+
+# Azure Arc
+- monitorování cloudové, multicloudové nebo #On-Premise infratsruktury
+- #ARM - *Azure Resource Manager*
+	- služba pro nasazování a správu služeb #Azure 
+	- vytváření, aktualizace, odstranění atd #prostředky v účtu #Azure 
+	- ### Šablony #Azure #ARM 
+		- #infrastructure_as_code - nasazení infrastruktury pomocí kódu
+		- JSON soubor popisující strukturu
+- správa kompletního prostředí, #Virtualní_počítač, [[Cluster]] Kubernetes, SQL servery atd.
+
+# Nástroje pro monitorování
+- #Azure #advisor
+	- vyhodnocení využívání #prostředky 
+	- doporučení ohledně spolehlivosti, zabezpečení, výkonu a nákladů
+- #Azure #Service_health
+	- sledování stavu #prostředky a celkovýc stav infrastruktury #Azure 
+	- #Azure #status - celkový stav #Azure ve všech oblastech -> informace o výpadcích
+	- #Service_health - konkrétní pohled na služby #Azure používané zákazníkem -> info o výpadcích a plánovaných odstávkách apod.
+	- #Resource_health - informace o konkrétních #prostředky 
+- #Azure #Monitor
+	- shromažďování a analýza dat
+	- přápadné reakce na výsledky analýzy
+	- #Azure, #On-Premise, multi-cloud
+	- Zobrazení v dashboardu nebo pomocí dotazů Power BI
+- #Azure #Log_Analytics
+	- podrobné dotazování na data z #Azure #Monitor 
+- #Azure #Monitor_Alerts
+	- upozornění při překročení zadané hodnoty
+	- podmínky vyvolání upozornění
+	- #action_groups - více akcí v jedné skupině
+- #Application_Insights
+	- monitorování webových aplikací
+	- sledování výkonu
+	- posíláno *syntetických* požadavků -> kontrola stavu během nízkého vytížení

@@ -67,6 +67,7 @@
 		- pro více #AccessPoint  jsou vhodné kanály 36, 48, 60
 			- nejmenší překrývání
 	- #WiFi
+		- mobilní do nízké rychlosti
 
 | Standard | Frekvence     | Popis             |
 | -------- | ------------- | ----------------- |
@@ -165,6 +166,7 @@
 	- podobný #WiFi pro více uživatelů na větší vzdálenost
 
 - # Cellular Broadband - Mobilní síť
+	- #Cellular 
 	- data i hlas
 	- nutná SIM karta
 	- telefony, tablety atd.
@@ -185,6 +187,8 @@
 ![[Cellular.png]]
 
 - # Satellite
+	- #Satellite 
 	- #směrová_anténa na geostacionární družici
 	- odlehlé lokality - bez jiné možnosti připojení
 	- **Starlink**
+	- Vysoká latence

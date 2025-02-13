@@ -7,7 +7,7 @@
 - kódování/dekódování
 - přenos na přenosové médium
 - [[WAN]]
-	- #DWDM - Dense Wawelength Division Multiplexing
+	- #DWDM 
 
 #Linková (spojová)
 - Propojení sousedních uzlů
@@ -28,9 +28,16 @@
 		- #CSMA/CA - Collision Avoidance
 		- #CSMA/CD - Collision Detection
 - [[WAN]]
-	- #Metro-ethernet - Ethernet #WAN 
-	- širokopásmové standardy #DSL , "kabelovka" - #Cable
-	- #MPLS - Multiprotocol Label Switching
+	- #Metro-ethernet & Ethernet #WAN 
+		- sada IEEE standardů
+		- většinou optika nebo twinaxiální kabely
+	- širokopásmové standardy #DSL 
+		- kroucená dvoulinka
+	- "kabelovka" - #Cable
+		- koax
+	- #MPLS - *Multiprotocol Label Switching*
+		- L2,5 - Tag mezi hlavičkou #Linková a #Síťová vrstvy
+		- #EoMPLS - *Ethernet over MPLS*
 
 
 #Síťová
