@@ -56,3 +56,30 @@
 - Export konfigurace - *Terminal* -> `export file=filename`
 	- úplná nebo částečná záloha (na základě momentálního kontextu konfigurace)
 	- soubor se skriptem nebo export v konzoli
+
+# Wi-Fi
+- *Wireless* -> *Wireless*
+	- WiFi Interfaces
+		- interface -> wlan1
+			- mode : přístupový bod (ap bridge) / stanice (station)
+			- band: 2GHz-only-N
+			- frequency: kanál
+			- SSID: název sítě
+			- security profil: profil ověřování
+			- WPS mode: disabled
+			- Frequency mode: regulatory-domain
+			- Country: CZ - nastavení správných parametrů dle zákona
+			- installation: indoor/outdoor
+	- Security Profiles - ověřování
+		- mode: dynamic keys
+		- types: WPA2 PSK
+		- WPA2 Pre-Shared Key: heslo
+
+### Zabezpečení
+- Open -> OWE
+- WEP
+- WPA
+- **WPA2**
+- **WPA3**
+	- EAP (enterprise) - RADUIS, AD
+	- PSK (personal)
