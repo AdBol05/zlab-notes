@@ -41,9 +41,9 @@
 	- Jedna privátní adresa je dynamicky přeložena na jednu veřejnou
 	- ==Riziko vyčerpání poolu==
 	- #### Konfigurace
-		- `ip nat pool NAT-POOL1 209.165.200.226 209.165.200.240 prefix-length 24`
-		- `access-list 1 permit 192.168.0.0 0.0.255.255`  - adresy s přístupem na internet
-		- `ip nat inside source list 1 interface g0/1` - povolení NAT podle ACL
+		- `ip nat pool NAT-POOL1 209.165.200.226 209.165.200.240 netmask 255.255.255.128`
+		- `access-list 1 permit 192.168.0.0 0.0.255.255`  - [[ACLs]] povolující NATování
+		- `ip nat inside source list 1 pool NAT-POOL1` - přiřazení [[ACLs]] a poolu
 		- `int g0/0`
 		- `ip nat [inside/outside]`
 - ### Port Address Translation
@@ -53,7 +53,7 @@
 	- K mapování používá dvojici port + zdrojová IP adresa
 	- Kontroluje vyžádání příchozích packetů (nepropouští nevyžádané odpovědi)
 	- #### Konfigurace
-		- `ip nat inside source list 1 int s0/1/1 overload` - odchozí interface
+		- `ip nat inside source list 1 pool NAT-POOL1 overload` - odchozí interface
 		- `access-list 1 permit 192.168.0.0 0.0.255.255`
 		- `int s0/1/0`
 		- `ip nat inside`

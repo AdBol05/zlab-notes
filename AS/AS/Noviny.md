@@ -1,2 +1,0 @@
-- Rok založení 1956 -> 360 let -> 90 000 vydání
-- 

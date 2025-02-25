@@ -1,4 +1,0 @@
-- Předávání packetů, směřujících z veřejné IP části sítě na určitý aplikační port na počítač s neveřejnou adresou v privátní síti
-- Využití u serverových služeb, běžících na počítači s privátní IP adresou
-- `ip nat inside source static tcp 192.168.10.254 80 209.165.200.225 8080`
-	- #Static [[NAT]]
